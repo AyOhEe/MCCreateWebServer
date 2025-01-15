@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: create_cct_web_interface
-Specification-Vendor: AyOhEe
-Specification-Version: 1
-Implementation-Title: MCCreateWebServer
-Implementation-Version: 0.0.2
-Implementation-Vendor: AyOhEe
-Implementation-Timestamp: 2025-01-13T21:42:24+0000
-

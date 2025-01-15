@@ -24,7 +24,7 @@ public class WebsiteServer {
             } catch (IOException ioe) {
                 StringWriter sw = new StringWriter();
                 ioe.printStackTrace(new PrintWriter(sw));
-                CreateCCTWebInterface.LOGGER.error("Website server encountered exception! restarting...");
+                CreateCCTWebInterface.LOGGER.error("Website server encountered exception!");
                 CreateCCTWebInterface.LOGGER.error(sw.toString());
             }
 
@@ -33,14 +33,15 @@ public class WebsiteServer {
     }
     public static void restart() {
         CreateCCTWebInterface.LOGGER.info("Website server restarting...");
-        serverInst.stop(0);
-        threadInst.stop();
+        kill();
         start();
     }
     public static void kill() {
         CreateCCTWebInterface.LOGGER.info("Killing website server...");
-        serverInst.stop(0);
-        threadInst.stop();
+        if (serverInst != null && threadInst.isAlive()) {
+            serverInst.stop(0);
+            threadInst.stop();
+        }
     }
 
     public static void serverThread() throws IOException {
